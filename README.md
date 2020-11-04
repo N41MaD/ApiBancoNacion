@@ -1,5 +1,5 @@
-# heroku-netcore2.2-mysql
-NET CORE 2.2 Web API with Basic Authentication with MySQL pushed to Heroku
+# Web Api Banco Nación
+NET CORE 2.2 Web API con Basic Authentication, con MySQL, hosteada en Heroku
 
 # DEMO
 https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/
