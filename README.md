@@ -34,9 +34,9 @@ https://heroku.com
     "compra" : "",
     "venta": ""
   }
-- Inserta manualmente una cotizacion, previo chequeo del id, en la DDBB
+- Inserta manualmente una cotizacion, previo chequeo del id, en la DDBB y devuelve lo insertado en formato JSON.
 
-## 1) Ejercicio 2
+## 2) Ejercicio 2
 - url: https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/GetQuotes
 - Metodo: GET
 - Autenticacion básica
