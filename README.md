@@ -2,7 +2,7 @@
 NET CORE 2.2 Web API with Basic Authentication with MySQL pushed to Heroku
 
 # DEMO
-https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/GetQuotes
+https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/
 
 # External Service
 https://bna.com.ar/Mobile/CotizadorMobile
@@ -13,58 +13,32 @@ https://www.freesqldatabase.com
 # CLOUD API
 https://heroku.com
 
-# Tutorials
-- https://dev.to/alrobilliard/deploying-net-core-to-heroku-1lfe
-- https://medium.com/faun/deploy-dotnet-core-api-docker-container-with-mysql-on-heroku-ed387eab4222
-- https://softchris.github.io/pages/dotnet-dockerize.html
-
-# Requirements
-- NET CORE 2.2
-- MYSQL 5
-- DOCKER
-
-# Dockerfiles
-In project WebAPI
-
-# Create Database
-- You can use Update-Database from Package Manage Console or
-- "dotnet tool install --global dotnet-ef" and "dotnet ef database update" or
-- use .sql in the repo
-
 # USO DE LA API
-- Use POSTMAN with Basic Authentication 
+- Usar POSTMAN con Basic Authentication 
 - username: bna
 - password: 123456
 
-# Subir Aplicacion a Heroku
+## 0) Ejercicio 1
+- url: https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/
+- Metodo: GET
+- Autenticacion básica
+- Busca en la api del banco las cotizaciones y las inserta en la DDBB
 
-## 0) Crear cuenta en Heroku (y Docker por supuesto)
-- Crear una aplicacion nueva de nombre web-api-netcore-22-mysql-free en Heroku (Vos no vas a poder porque la mia ya se llama asi jeje)
+## 1) Ejercicio 2
+- url: https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/
+- Metodo: POST
+- Autenticacion básica
+- JSON: 
+  {
+    "id" : "",
+    "compra" : "",
+    "venta": ""
+  }
+- Inserta manualmente una cotizacion, previo chequeo del id, en la DDBB
 
-## 1) Comprobar y Loguear en Heroku
-- heroku --version
-- heroku login
-- heroku container:login
+## 1) Ejercicio 2
+- url: https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/GetQuotes
+- Metodo: GET
+- Autenticacion básica
+- Trae las cotizaciones del día de la DDBB.
 
-## 2) Crear docker image y correrlo local (Puede que haya que modificar parte del dockerfile la parte final, ver archivos y comentarios)
-- dotnet build
-- dotnet run
-- docker build -t banco-nacion-webapi-mysql .
-- docker run -d -p 8080:80 --name abc banco-nacion-webapi-mysql
-
-## 3) Crear docker image para montarlo
-- docker build --pull -t banco-nacion-webapi-mysql . (banco-nacion-webapi-mysql es el nombre nuestro proyecto imagen docker)
-
-## 4) Asociar el docker image anterior con la app creada en heroku
-- docker tag banco-nacion-webapi-mysql registry.heroku.com/web-api-netcore-22-mysql-free/web (web-api-netcore-22-mysql-free es la aplicacion que tenemos que tener creada de antemano en Heroku
-
-## 5) Enviar docker image a la app
-- docker push registry.heroku.com/web-api-netcore-22-mysql-free/web
-
-## 6) Iniciar app con la imagen enviada
-- heroku container:release web -a web-api-netcore-22-mysql-free
-
-## 7) Comprobar si funciona
-- https://web-api-netcore-22-mysql-free.herokuapp.com/api/BancoNacion/GetQuotes
-- Ver logs en dashboard Heroku
-- heroku logs --tail -a web-api-netcore-22-mysql-free
